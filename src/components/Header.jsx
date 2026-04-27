@@ -28,7 +28,7 @@ MyLink.displayName = 'MyLink'
 const citys = [
   {
     name: 'Barranquilla',
-    description: 'Ambulatorio - Rehabilitacion - Salud mental',
+    description: 'Ambulatorio - Rehabilitacion',
     href: '/contacto/barranquilla',
   },
   {
@@ -45,6 +45,11 @@ const citys = [
     name: 'Monteria',
     description: 'Hospitalizacion - Ambulatorio - Consulta externa',
     href: '/contacto/monteria',
+  },
+  {
+    name: 'Sincelejo',
+    description: 'Hospitalizacion - Ambulatorio - Hospital Día',
+    href: '/contacto/sincelejo',
   },
   {
     name: 'Turbaco',
@@ -97,7 +102,7 @@ export default function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-blue-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-blue-700 cursor-pointer"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Abrir menu principal</span>
@@ -124,7 +129,7 @@ export default function Header() {
           </a>
 
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-blue-900 outline-none">
+            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-blue-900 outline-none cursor-pointer">
               Contactanos
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-blue-600"
@@ -256,7 +261,7 @@ export default function Header() {
                 </div>
 
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-blue-900 hover:bg-green-50 group">
+                  <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-blue-900 hover:bg-green-50 group cursor-pointer">
                     Contactanos
                     <ChevronDownIcon
                       className="h-5 w-5 flex-none group-data-open:rotate-180 transition-transform"

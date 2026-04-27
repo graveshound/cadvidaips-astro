@@ -18,14 +18,6 @@ const CITYS = [
     },
     offices: [
       {
-        name: 'Salud Mental',
-        location: 'Calle 54 #53-50',
-        gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.6194099714576!2d-74.79030636129767!3d10.99207295792682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d7a4f6d470f%3A0x8e8d08411b512d71!2sCl.%2054%20%2353-50%2C%20Nte.%20Centro%20Historico%2C%20Barranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1704391679169!5m2!1ses!2sco',
-        reference: undefined,
-        tel: undefined,
-        cel: { Generales: ['311-3244519'] },
-      },
-      {
         name: 'Ambulatorio & Rehabilitacion',
         location: 'Calle 54 #53-59',
         gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.617603789214!2d-74.79313715945727!3d10.992208989215131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d7a44f52691%3A0xdc5068316510b40e!2sCl.%2054%20%2353-59%2C%20Nte.%20Centro%20Historico%2C%20Barranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1704391765752!5m2!1ses!2sco',
@@ -52,7 +44,7 @@ const CITYS = [
         tel: undefined,
         cel: {
           'Psicología y psiquiatría': ['315-3315223'],
-          Neuropsicologia: ['316-0263884'],
+          Neuropsicologia: ['302-2399759'],
         },
       },
     ],
@@ -80,7 +72,7 @@ const CITYS = [
         gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.081590312841!2d-74.75016045947497!3d9.237000690871035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e5ec7bd6fc77f01%3A0xd765edbe58d55e59!2zQ3JhLiA3ICMxNi05LCBNYWdhbmd1w6ksIEJvbMOtdmFy!5e0!3m2!1ses!2sco!4v1704392175112!5m2!1ses!2sco',
         reference: undefined,
         tel: undefined,
-        cel: { Generales: ['301-4509084', '300-1277186'] },
+        cel: { Generales: ['300-1277186'] },
       },
     ],
   },
@@ -108,6 +100,38 @@ const CITYS = [
     ],
   },
   {
+    id: 'sincelejo',
+    name: 'Sincelejo',
+    emails: {
+      appointment: 'citas.sincelejo@cadvidaips.com',
+      admin: 'admin.sincelejo@cadvidaips.com',
+      reference: 'referencia.sincelejo@cadvidaips.com',
+    },
+    offices: [
+      {
+        name: 'Hospitalizacion',
+        location: 'Cra 18 #25A - 08, Calle del Comercio, Centro',
+        gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1170.592269828799!2d-75.39498407117462!3d9.298901878040693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e59144ef4564a69%3A0xde08575da7caa0b1!2sCra.%2018%20%23%2025A-8%2C%20Sincelejo%2C%20Sucre!5e0!3m2!1ses!2sco!4v1777329286707!5m2!1ses!2sco',
+        reference: 'Bajando la principal del Sandra',
+        tel: undefined,
+        cel: {
+          'Pacientes hospitalizados (Línea 24 horas)': ['317-6394774']
+        },
+      },
+      {
+        name: 'Ambulatorio & Hospital Día',
+        location: 'Cl 26 #16A - 7, Cruz de Colorado',
+        gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.3932315331276!2d-75.40141790825348!3d9.29838126093519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e59144e5345f04f%3A0x9ec2392568c2a596!2sCl.%2026%20%23%2016A-7%2C%20Sincelejo%2C%20Sucre!5e0!3m2!1ses!2sco!4v1777329406130!5m2!1ses!2sco',
+        reference: undefined,
+        tel: undefined,
+        cel: {
+          'Trámites de consultas, citas y Hospital Día': ['315-2327876'],
+          'Temas administrativos y/o calidad': ['316-4381508']
+        },
+      },
+    ],
+  },
+  {
     id: 'turbaco',
     name: 'Turbaco',
     emails: {
@@ -122,7 +146,7 @@ const CITYS = [
         gmap: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.5309624680735!2d-75.42700429427363!3d10.336929568310975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDIwJzEyLjkiTiA3NcKwMjUnMzQuOSJX!5e0!3m2!1ses!2sco!4v1568912361917!5m2!1ses!2sco',
         reference: undefined,
         tel: undefined,
-        cel: { Generales: ['316-0263880'] },
+        cel: { Generales: ['315-3315223'] },
       },
       {
         name: 'Hospitalizacion',
@@ -174,11 +198,10 @@ export default function Contact({ selectedCity }) {
             {actualCity.offices.map((office) => (
               <span
                 key={office.gmap}
-                className={`inline-flex whitespace-nowrap rounded-md px-2 py-1 text-xl font-medium ${
-                  dataIframe.isActive === office.name
-                    ? 'bg-green-50 text-green-600 ring-green-700/10'
-                    : 'bg-blue-50 text-blue-600 ring-blue-700/10'
-                } ring-1 ring-inset`}
+                className={`inline-flex whitespace-nowrap rounded-md px-2 py-1 text-xl font-medium ${dataIframe.isActive === office.name
+                  ? 'bg-green-50 text-green-600 ring-green-700/10'
+                  : 'bg-blue-50 text-blue-600 ring-blue-700/10'
+                  } ring-1 ring-inset`}
                 onClick={() =>
                   setDataIframe({
                     sede: office.name,
@@ -263,17 +286,37 @@ export default function Contact({ selectedCity }) {
                       aria-hidden="true"
                     />
                     <span>
-                      <strong className="font-semibold text-gray-900">
-                        Celulares:{' '}
-                      </strong>
-                      {Object.entries(office.cel).map(([key, values]) => (
-                        <div key={key}>
-                          <strong className="font-semibold text-gray-900">
-                            {key}:{' '}
-                          </strong>
-                          {values.join(' / ')}
-                        </div>
-                      ))}
+                      {(() => {
+                        const entries = Object.entries(office.cel)
+                        const isGeneralesOnly =
+                          entries.length === 1 && entries[0][0] === 'Generales'
+                        if (isGeneralesOnly) {
+                          const nums = entries[0][1]
+                          return (
+                            <>
+                              <strong className="font-semibold text-gray-900">
+                                {nums.length === 1 ? 'Celular' : 'Celulares'}:{' '}
+                              </strong>
+                              {nums.join(' / ')}
+                            </>
+                          )
+                        }
+                        return (
+                          <>
+                            <strong className="font-semibold text-gray-900">
+                              Celulares:{' '}
+                            </strong>
+                            {entries.map(([key, values]) => (
+                              <div key={key}>
+                                <strong className="font-semibold text-gray-900">
+                                  {key}:{' '}
+                                </strong>
+                                {values.join(' / ')}
+                              </div>
+                            ))}
+                          </>
+                        )
+                      })()}
                     </span>
                   </li>
                 </ul>

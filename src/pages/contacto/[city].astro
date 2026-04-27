@@ -1,26 +1,28 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import Contact from '../../components/Contact'
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/Contact";
 
 export function getStaticPaths() {
   return [
-    { params: { city: 'barranquilla' } },
-    { params: { city: 'cartagena' } },
-    { params: { city: 'magangue' } },
-    { params: { city: 'monteria' } },
-    { params: { city: 'turbaco' } },
-  ]
+    { params: { city: "barranquilla" } },
+    { params: { city: "cartagena" } },
+    { params: { city: "magangue" } },
+    { params: { city: "monteria" } },
+    { params: { city: "sincelejo" } },
+    { params: { city: "turbaco" } },
+  ];
 }
 
-const { city } = Astro.params
-const cityNames = {
-  barranquilla: 'Barranquilla',
-  cartagena: 'Cartagena',
-  magangue: 'Magangué',
-  monteria: 'Montería',
-  turbaco: 'Turbaco',
-}
-const cityName = cityNames[city] || city
+const { city } = Astro.params;
+const cityNames: Record<string, string> = {
+  barranquilla: "Barranquilla",
+  cartagena: "Cartagena",
+  magangue: "Magangué",
+  monteria: "Montería",
+  sincelejo: "Sincelejo",
+  turbaco: "Turbaco",
+};
+const cityName = cityNames[city] || city;
 ---
 
 <Layout
