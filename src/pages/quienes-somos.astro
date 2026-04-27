@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro'
+import {
+  BuildingLibraryIcon,
+  EyeIcon,
+  PresentationChartLineIcon,
+  ShieldCheckIcon,
+} from '@heroicons/react/20/solid'
+---
+
+<Layout title="Quiénes Somos - CADVIDA IPS" description="Conoce la misión, visión y valores de CADVIDA IPS">
+  <div class="relative mt-8 isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+
+      <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div class="lg:pr-4">
+          <div class="lg:max-w-lg">
+            <p class="text-base font-semibold leading-7 text-blue-600">
+              Conocenos ...
+            </p>
+            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Cambiamos vidas
+            </h1>
+            <p class="mt-6 text-xl leading-8 text-gray-700 text-center">
+              " No te niegues a hacer el bien a quien es debido, cuando
+              tuvieres poder para hacerlo. No digas a tu prójimo: Anda, y
+              vuelve, y mañana te daré, cuando tienes contigo qué darle."
+            </p>
+            <p class="mt-6 text-xl leading-8 text-green-600 text-right font-semibold">
+              -Proverbios 3:27-28
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden hidden md:block">
+        <img
+          class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+          src="/assets/images/patient.jpg"
+          alt="Paciente CADVIDA IPS"
+        />
+      </div>
+
+      <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div class="lg:pr-4">
+          <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+            <ul role="list" class="mt-8 space-y-8 text-gray-600">
+              <li class="flex gap-x-3">
+                <BuildingLibraryIcon className="mt-1 h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
+                <span class="text-justify">
+                  <strong class="font-semibold text-gray-900">Mision.</strong>{' '}
+                  Somos un centro de atención para el desarrollo humano,
+                  teniendo como finalidad brindar tratamiento especializado a
+                  adolescentes, adultos y adulto mayor algún tipo de adicción
+                  de manera eficaz y eficiente para mejorar la calidad de vida
+                  de la persona, familiar y de la sociedad a través de un
+                  programa clínico y terapéutico que permita formar individuos
+                  útiles y productivos para la sociedad, con valores y
+                  habilidades sociales, emocionales y conductuales.
+                </span>
+              </li>
+              <li class="flex gap-x-3">
+                <EyeIcon className="mt-1 h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
+                <span class="text-justify">
+                  <strong class="font-semibold text-gray-900">Vision.</strong>{' '}
+                  Constituirnos como el Centro de Atención en Salud Mental
+                  líder en la Zona Norte de Colombia en tratamiento
+                  especializado en adicciones a adolescentes y adultos con la
+                  más alta calidad en sus procesos a través de un equipo
+                  clínico-terapéutico altamente especializado y comprometido
+                  con la implementación de nuevas tecnologías en adicciones
+                  con resultados satisfactorios que les permitan a nuestros
+                  usuarios alcanzar una vida en familia y en sociedad.
+                </span>
+              </li>
+              <li class="flex gap-x-3">
+                <PresentationChartLineIcon className="mt-1 h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
+                <span class="text-justify">
+                  <strong class="font-semibold text-gray-900">Calidad.</strong>{' '}
+                  Nuestra politica de calidad nos convierte en un Centro de
+                  Atención en salud mental con la más alta calidad en
+                  procedimientos y atención buscando la completa satisfacción
+                  del usuario mediante un tratamiento eficaz y eficiente en
+                  nuestros procedimientos mediante resultados que superen las
+                  expectativas basado en la resolución 3100 del 2019 y el
+                  Decreto 1011 de 2006, cumpliendo los objetivos de calidad
+                  mediante la mejora continua en todos los procesos.
+                </span>
+              </li>
+              <li class="flex gap-x-3">
+                <ShieldCheckIcon className="mt-1 h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
+                <span class="text-justify">
+                  <strong class="font-semibold text-gray-900">Seguridad del paciente.</strong>{' '}
+                  Nuestra politica de seguridad del paciente promueve un
+                  entorno seguro, minimizando, eliminando o transfiriendo el
+                  riesgo de ocurrencia de eventos adversos, para lo cual
+                  cuenta con personas idóneas e implementa estrategias de
+                  seguridad, que garantizan el mejoramiento continuo y la
+                  consolidación de la cultura organizacional de la seguridad
+                  del paciente; Consideramos la seguridad del paciente como
+                  parte fundamental de la calidad del proceso de atención, por
+                  lo cual promueve la cultura de seguridad en sus servidores,
+                  pacientes y familias y desarrolla acciones de
+                  identificación, prevención y gestión de riesgos relacionados
+                  con el proceso de atención médico, terapéutico y asistencial.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

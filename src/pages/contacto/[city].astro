@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Contact from '../../components/Contact'
+
+export function getStaticPaths() {
+  return [
+    { params: { city: 'barranquilla' } },
+    { params: { city: 'cartagena' } },
+    { params: { city: 'magangue' } },
+    { params: { city: 'monteria' } },
+    { params: { city: 'turbaco' } },
+  ]
+}
+
+const { city } = Astro.params
+const cityNames = {
+  barranquilla: 'Barranquilla',
+  cartagena: 'Cartagena',
+  magangue: 'Magangué',
+  monteria: 'Montería',
+  turbaco: 'Turbaco',
+}
+const cityName = cityNames[city] || city
+---
+
+<Layout
+  title={`Contacto ${cityName} - CADVIDA IPS`}
+  description={`Información de contacto de CADVIDA IPS en ${cityName}`}
+>
+  <Contact selectedCity={city} client:load />
+</Layout>

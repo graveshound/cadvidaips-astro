@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro'
+import {
+  BuildingOfficeIcon,
+  BuildingOffice2Icon,
+  ClipboardDocumentCheckIcon,
+  StarIcon,
+} from '@heroicons/react/24/outline'
+
+const features = [
+  {
+    name: 'Consulta externa',
+    description:
+      'Ofrecemos servicios integrales de salud mental, incluyendo psiquiatría, psiquiatría infantil, psicología, psicología clínica, trabajo social, terapia ocupacional y neuropsicología.',
+    icon: ClipboardDocumentCheckIcon,
+  },
+  {
+    name: 'Hospitalarios/Internación',
+    description:
+      'Brindamos servicios de hospitalización en unidad de salud mental, desintoxicación e internación hospitalaria para consumidores de sustancias psicoactivas.',
+    icon: BuildingOffice2Icon,
+  },
+  {
+    name: 'Hospitalarios/Ambulatorios',
+    description:
+      'Brindamos servicios de bienestar y prevención, asi como tambien diagnóstico, tratamiento y rehabilitación, se practican tecnicas clinico terapeuticas teniendo como eje principal el entorno familiar.',
+    icon: BuildingOfficeIcon,
+  },
+  {
+    name: 'Programas de prevención',
+    description:
+      'Abarcamos una amplia gama de servicios, desde tratamiento de adicciones (alcohol, drogas, tabaco) hasta apoyo para duelos, problemas con juegos de azar y videojuegos.',
+    icon: StarIcon,
+  },
+]
+---
+
+<Layout title="Servicios - CADVIDA IPS" description="Conoce los servicios de salud mental y rehabilitación que ofrece CADVIDA IPS">
+  <div class="bg-white py-24 sm:py-32 mt-8">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-blue-600">
+          Estamos para ayudarte
+        </h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Conoce nuestros servicios
+        </p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Ofrecemos una extensa variedad de servicios centrados en promover el
+          bienestar integral de nuestros pacientes, respaldados por un equipo
+          interdisciplinario de excelencia. Nos destacamos por nuestra calidad
+          humana, académica y profesional, manteniendo un enfoque cálido en el
+          trato y un profundo respeto por los derechos de los pacientes y su
+          entorno.
+        </p>
+      </div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+          {features.map((feature) => (
+            <div class="relative pl-16">
+              <dt class="text-base font-semibold leading-7 text-gray-900">
+                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+                  <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                </div>
+                {feature.name}
+              </dt>
+              <dd class="mt-2 text-base leading-7 text-gray-600">
+                {feature.description}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</Layout>
