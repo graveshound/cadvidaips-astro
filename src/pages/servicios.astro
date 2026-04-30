@@ -1,76 +1,89 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import {
-  BuildingOfficeIcon,
-  BuildingOffice2Icon,
-  ClipboardDocumentCheckIcon,
-  StarIcon,
-} from '@heroicons/react/24/outline'
+import { Icon } from 'astro-icon/components'
 
 const features = [
   {
     name: 'Consulta externa',
     description:
       'Ofrecemos servicios integrales de salud mental, incluyendo psiquiatría, psiquiatría infantil, psicología, psicología clínica, trabajo social, terapia ocupacional y neuropsicología.',
-    icon: ClipboardDocumentCheckIcon,
+    icon: 'heroicons:clipboard-document-check',
   },
   {
     name: 'Hospitalarios/Internación',
     description:
       'Brindamos servicios de hospitalización en unidad de salud mental, desintoxicación e internación hospitalaria para consumidores de sustancias psicoactivas.',
-    icon: BuildingOffice2Icon,
+    icon: 'heroicons:building-office-2',
   },
   {
     name: 'Hospitalarios/Ambulatorios',
     description:
       'Brindamos servicios de bienestar y prevención, asi como tambien diagnóstico, tratamiento y rehabilitación, se practican tecnicas clinico terapeuticas teniendo como eje principal el entorno familiar.',
-    icon: BuildingOfficeIcon,
+    icon: 'heroicons:building-office',
   },
   {
     name: 'Programas de prevención',
     description:
       'Abarcamos una amplia gama de servicios, desde tratamiento de adicciones (alcohol, drogas, tabaco) hasta apoyo para duelos, problemas con juegos de azar y videojuegos.',
-    icon: StarIcon,
+    icon: 'heroicons:star',
   },
 ]
 ---
 
-<Layout title="Servicios - CADVIDA IPS" description="Conoce los servicios de salud mental y rehabilitación que ofrece CADVIDA IPS">
-  <div class="bg-white py-24 sm:py-32 mt-8">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7 text-blue-600">
-          Estamos para ayudarte
-        </h2>
-        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Conoce nuestros servicios
-        </p>
-        <p class="mt-6 text-lg leading-8 text-gray-600">
-          Ofrecemos una extensa variedad de servicios centrados en promover el
-          bienestar integral de nuestros pacientes, respaldados por un equipo
-          interdisciplinario de excelencia. Nos destacamos por nuestra calidad
-          humana, académica y profesional, manteniendo un enfoque cálido en el
-          trato y un profundo respeto por los derechos de los pacientes y su
-          entorno.
-        </p>
+<Layout title="Servicios - CADVIDA IPS" description="Conoce los servicios de salud mental y rehabilitación que ofrece CADVIDA IPS" fullBleed={true}>
+  <!-- Hero Section -->
+  <div class="relative overflow-hidden bg-brand-blue pt-36 pb-24 sm:pt-48 sm:pb-32 w-full rounded-b-[3rem] shadow-lg mb-16 mt-[-1px]">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-blue-light/30 to-brand-blue/90" />
+      <div class="absolute right-0 top-0 -translate-y-12 translate-x-1/3 transform-gpu opacity-20">
+        <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-brand-green to-brand-green-light" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
       </div>
-      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-          {features.map((feature) => (
-            <div class="relative pl-16">
-              <dt class="text-base font-semibold leading-7 text-gray-900">
-                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
-                  <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                </div>
+    </div>
+    
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center animate-fade-in-up">
+      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl font-heading">
+        Nuestros Servicios
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-blue-100 max-w-2xl mx-auto">
+        Ofrecemos una extensa variedad de servicios centrados en promover el bienestar integral de nuestros pacientes, respaldados por un equipo interdisciplinario de excelencia.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-24">
+    <div class="mx-auto max-w-2xl lg:text-center animate-fade-in-up" style="animation-delay: 0.1s;">
+      <h2 class="text-base font-semibold leading-7 text-brand-green uppercase tracking-wide">
+        Atención Integral
+      </h2>
+      <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading">
+        Estamos para ayudarte
+      </p>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Nos destacamos por nuestra calidad humana, académica y profesional, manteniendo un enfoque cálido en el trato y un profundo respeto por los derechos de los pacientes y su entorno.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+        {features.map((feature, index) => (
+          <div class={`glass rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up flex flex-col sm:flex-row gap-6`} style={`animation-delay: ${0.2 + (index * 0.1)}s;`}>
+            <div class="flex-shrink-0">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-blue shadow-md text-white">
+                <Icon name={feature.icon} class="h-7 w-7" aria-hidden="true" />
+              </div>
+            </div>
+            <div>
+              <dt class="text-xl font-bold leading-7 text-gray-900 font-heading mt-2 sm:mt-0">
                 {feature.name}
               </dt>
-              <dd class="mt-2 text-base leading-7 text-gray-600">
+              <dd class="mt-4 text-base leading-7 text-gray-600">
                 {feature.description}
               </dd>
             </div>
-          ))}
-        </dl>
-      </div>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </Layout>
+

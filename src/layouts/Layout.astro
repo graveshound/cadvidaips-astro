@@ -2,36 +2,81 @@
 import '../styles/globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer.astro'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
   title?: string
   description?: string
+  fullBleed?: boolean
+  image?: string
+  canonicalURL?: string | URL
 }
 
 const {
-  title = 'CADVIDA IPS',
-  description = 'CADVIDA IPS - Centro de Atención en Salud Mental y Rehabilitación',
+  title = 'CADVIDA IPS | Especialistas en Salud Mental y Adicciones',
+  description = 'CADVIDA IPS es el Centro de Atención en Salud Mental líder en la Región Caribe. Tratamiento especializado en psiquiatría, psicología, rehabilitación y adicciones.',
+  fullBleed = false,
+  image = '/assets/images/logo.png',
 } = Astro.props
+
+const canonicalURL = new URL(Astro.props.canonicalURL || Astro.url.pathname, Astro.site || 'https://www.cadvidaips.com')
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "CADVIDA IPS",
+  "image": new URL('/assets/images/logo.png', canonicalURL).toString(),
+  "url": canonicalURL.toString(),
+  "telephone": "+573100000000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Región Caribe",
+    "addressCountry": "CO"
+  },
+  "description": "Centro de Atención en Salud Mental y Rehabilitación en Colombia.",
+  "medicalSpecialty": ["Psychiatric", "Psychological", "Rehabilitation"]
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="keywords" content="salud mental, psiquiatría, psicología, rehabilitación, adicciones, IPS Colombia, consulta externa, hospitalización salud mental" />
+    <meta name="theme-color" content="#0f4c81" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
-  <body class="flex flex-col min-h-screen font-[Inter,sans-serif]">
+  <body class="flex flex-col min-h-screen font-sans bg-gray-50/50">
     <Header client:load />
-    <main class="flex-grow">
+    <main class={`flex-grow ${fullBleed ? '' : 'pt-24 sm:pt-32 pb-12'}`}>
       <slot />
     </main>
     <Footer />

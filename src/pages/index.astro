@@ -1,81 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
+import HomeClient from "../components/HomeClient.jsx";
 ---
 
-<Layout title="CADVIDA IPS" description="CADVIDA IPS - Centro de Atención en Salud Mental y Rehabilitación">
-  <div class="w-full mt-24 flex flex-col">
-    <div class="flex justify-center items-center flex-col bg-[image:var(--background-image-doctor-help)] bg-cover w-full lg:h-96 h-80">
-      <img
-        src="/assets/images/isologo.png"
-        style="width: auto; height: 70%;"
-        alt="CADVIDA IPS"
-      />
-      <h2
-        class="text-xl mt-4 font-bold tracking-tight text-gray-100 sm:text-3xl"
-        style="text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;"
-      >
-        Más de 10 años transformando vidas.
-      </h2>
-    </div>
-
-    <div class="w-5/6 self-center">
-      <div class="bg-white">
-        <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-10 sm:px-6 sm:py-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Comprometidos con la gente
-            </h2>
-            <p class="mt-4 text-gray-500 text-justify">
-              Somos una IPS comprometida con el cuidado de la salud mental y
-              el bienestar de las personas y comunidades, apuntando a la
-              población con condición de consumo de sustancias psicoactivas y
-              personas con alguna patologia en salud mental. trabajando
-              intensamente en la recuperación, inclusión social y
-              consolidación de los lazos sociales, familiares y laborales.
-              Para lograr el objetivo se cuenta con un plantel profesional con
-              sólida formación académica y calidez humanística, utilizando en
-              forma interdisciplinaria, todas las técnicas terapéuticas
-              actuales. Contamos con una infraestructura adecuada, tecnología
-              necesaria y el personal capacitado e idóneo, logrando así,
-              prestar servicios de excelente calidad.
-            </p>
-
-            <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">Enfoque Holístico</dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  La entidad aborda la salud mental y rehabilitación considerando no solo los síntomas específicos, sino también el bienestar general del individuo, integrando aspectos emocionales, sociales y físicos.
-                </dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">Acceso Equitativo</dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  Buscamos que todos tengan acceso a servicios de salud mental y rehabilitación, eliminando barreras geográficas, económicas y culturales, con el objetivo de ofrecer atención equitativa para todas las personas.
-                </dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">Profesionales Especializados</dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  Contamos con un equipo multidisciplinario altamente capacitado en salud mental y rehabilitación, fomentando la colaboración entre psicólogos, psiquiatras, terapeutas ocupacionales y fisioterapeutas.
-                </dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">Programas de Prevención</dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  Implementamos iniciativas preventivas, como campañas de sensibilización y talleres de manejo del estrés, para educar y promover la conciencia sobre la salud mental en la comunidad.
-                </dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-            <img src="/assets/images/vida-1.jpg" alt="vida ips" class="rounded-lg bg-gray-100" />
-            <img src="/assets/images/vida-2.jpg" alt="vida ips" class="rounded-lg bg-gray-100" />
-            <img src="/assets/images/vida-3.jpg" alt="vida ips" class="rounded-lg bg-gray-100" />
-            <img src="/assets/images/vida-4.jpg" alt="vida ips" class="rounded-lg bg-gray-100" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<Layout
+  title="CADVIDA IPS | Especialistas en Salud Mental"
+  description="CADVIDA IPS - Centro de Atención en Salud Mental y Rehabilitación. Más de 14 años transformando vidas."
+  fullBleed={true}
+>
+  <main class="w-full">
+    <HomeClient client:load />
+  </main>
 </Layout>

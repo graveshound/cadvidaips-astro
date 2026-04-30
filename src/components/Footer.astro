@@ -1,46 +1,131 @@
 ---
+
 ---
 
-<footer class="relative isolate h-44 flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 before:flex-1">
-  <div
-    class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-    aria-hidden="true"
-  >
+<footer
+  class="relative overflow-hidden bg-brand-blue text-white w-full rounded-t-[3rem]"
+>
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
     <div
-      class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#85d483] to-[#6794e8] opacity-30"
-      style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"
-    ></div>
-  </div>
-  <div
-    class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-    aria-hidden="true"
-  >
-    <div
-      class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#85d483] to-[#6794e8] opacity-30"
-      style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"
-    ></div>
-  </div>
-  <div class="flex flex-col items-center justify-center gap-x-4 gap-y-2">
-    <a
-      href="https://www.instagram.com/cadvida/"
-      class="text-base font-semibold leading-7 text-gray-800 my-8"
-      target="_blank"
-      rel="noopener noreferrer"
+      class="absolute top-[-20%] left-[-10%] w-64 h-64 bg-brand-blue-light/30 rounded-full mix-blend-screen filter blur-[80px]"
     >
-      <div class="flex gap-2">
-        <img src="/assets/images/instagram.png" alt="vida ips" width="32" />
-        <span class="text-lg"> @cadvida</span>
+    </div>
+    <div
+      class="absolute bottom-[-20%] right-[-10%] w-80 h-80 bg-brand-green/20 rounded-full mix-blend-screen filter blur-[100px]"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8 border-b border-white/10 pb-12">
+      <div
+        class="space-y-8 xl:col-span-1 flex flex-col items-center xl:items-start"
+      >
+        <img
+          src="/assets/images/isologo.png"
+          alt="CADVIDA IPS"
+          class="h-16 brightness-0 invert opacity-90"
+        />
+        <p
+          class="text-sm leading-6 text-blue-100 text-center xl:text-left max-w-xs"
+        >
+          Más de 14 años transformando vidas con atención integral en salud
+          mental y rehabilitación.
+        </p>
+        <div class="flex space-x-6">
+          <a
+            href="https://www.instagram.com/cadvida/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-200 hover:text-white transition-colors bg-white/5 p-3 rounded-full hover:bg-white/10"
+          >
+            <span class="sr-only">Instagram</span>
+            <img
+              src="/assets/images/instagram.png"
+              alt="Instagram"
+              class="h-6 w-6 brightness-0 invert"
+            />
+          </a>
+          <a
+            href="https://wa.link/t6f9nc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-200 hover:text-white transition-colors bg-white/5 p-3 rounded-full hover:bg-white/10"
+          >
+            <span class="sr-only">WhatsApp</span>
+            <img
+              src="/assets/images/whatsapp.png"
+              alt="WhatsApp"
+              class="h-6 w-6 brightness-0 invert"
+            />
+          </a>
+        </div>
       </div>
-    </a>
-    <h2 class="text-base font-semibold leading-7 text-gray-800">
-      Copyright © CADVIDA IPS SAS 2025
-    </h2>
-    <a
-      href="/politicas"
-      class="text-base font-semibold leading-7 text-gray-500 mb-6"
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3
+              class="text-sm font-semibold leading-6 text-white tracking-wider uppercase font-heading"
+            >
+              Navegación
+            </h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a
+                  href="/"
+                  class="text-sm leading-6 text-blue-200 hover:text-white transition-colors"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/servicios"
+                  class="text-sm leading-6 text-blue-200 hover:text-white transition-colors"
+                  >Servicios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/quienes-somos"
+                  class="text-sm leading-6 text-blue-200 hover:text-white transition-colors"
+                  >Quiénes somos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contacto"
+                  class="text-sm leading-6 text-blue-200 hover:text-white transition-colors"
+                  >Sedes y Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3
+              class="text-sm font-semibold leading-6 text-white tracking-wider uppercase font-heading"
+            >
+              Legal
+            </h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a
+                  href="/politicas"
+                  class="text-sm leading-6 text-blue-200 hover:text-white transition-colors"
+                  >Políticas de Privacidad</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-8 flex justify-between items-center flex-col sm:flex-row gap-4"
     >
-      Políticas de Seguridad y Privacidad
-    </a>
+      <p class="text-xs leading-5 text-blue-200">
+        &copy; {new Date().getFullYear()} CADVIDA IPS SAS. Todos los derechos reservados.
+      </p>
+    </div>
   </div>
-  <div class="flex flex-1 justify-end"></div>
 </footer>

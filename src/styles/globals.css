@@ -1,15 +1,67 @@
 @import "tailwindcss";
 
 @theme {
+  --color-brand-blue: #0f4c81;
+  --color-brand-blue-light: #2563eb;
+  --color-brand-green: #22c55e;
+  --color-brand-green-light: #85d483;
+  --color-brand-green-dark: #166534;
+
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
   --background-image-doctor-help: url('/assets/images/help.webp');
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 15, 23, 42;
+  --background-rgb: 248, 250, 252;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-dark {
+  background: rgba(15, 76, 129, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure all interactive elements have pointer cursor */
+button, 
+a, 
+[role="button"], 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  cursor: pointer !important;
 }
