@@ -31,7 +31,7 @@ export default function HomeClient() {
       <div className="relative overflow-hidden bg-brand-blue pb-32 pt-52 sm:pt-64 lg:pt-72 w-full rounded-b-[3rem] lg:rounded-b-[5rem] shadow-xl">
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/images/help.webp"
+            src="/assets/images/help.png"
             alt="Fondo de ayuda"
             className="h-full w-full object-cover opacity-20 mix-blend-multiply"
           />
