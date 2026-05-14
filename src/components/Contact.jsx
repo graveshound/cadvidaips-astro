@@ -45,7 +45,7 @@ const CITYS = [
         tel: undefined,
         cel: {
           'Psicología y Psiquiatría': ['315-3315223'],
-          Neuropsicología: ['302-2399759'],
+          Neuropsicología: ['316-0263884'],
         },
       },
     ],
