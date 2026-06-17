@@ -30,33 +30,38 @@ MyLink.displayName = 'MyLink'
 const citys = [
   {
     name: 'Barranquilla',
-    description: 'Ambulatorio - Rehabilitacion',
+    description: 'Hospitalización - Consulta externa - Hospital Día - Rehabilitación',
     href: '/contacto/barranquilla',
   },
   {
     name: 'Cartagena',
-    description: 'Hospitalizacion - Ambulatorio - Consulta externa',
+    description: 'Consulta externa - Hospital Día',
     href: '/contacto/cartagena',
   },
   {
-    name: 'Magangue',
-    description: 'Hospitalizacion - Ambulatorio - Consulta externa',
+    name: 'Magangué',
+    description: 'Hospitalización - Consulta externa - Hospital Día',
     href: '/contacto/magangue',
   },
   {
-    name: 'Monteria',
-    description: 'Hospitalizacion - Ambulatorio - Consulta externa',
+    name: 'Montería',
+    description: 'Hospitalización - Consulta externa - Hospital Día',
     href: '/contacto/monteria',
   },
   {
     name: 'Sincelejo',
-    description: 'Hospitalizacion - Ambulatorio - Hospital Día',
+    description: 'Hospitalización - Sede Ambulatoria - Hospital Día',
     href: '/contacto/sincelejo',
   },
   {
     name: 'Turbaco',
-    description: 'Rehabilitacion - Hospitalizacion - Consulta externa',
+    description: 'Hospitalización - Rehabilitación - Consulta externa',
     href: '/contacto/turbaco',
+  },
+  {
+    name: 'San Martín de Loba',
+    description: 'Hospital Día',
+    href: '/contacto/sanmartin',
   },
 ]
 
@@ -91,11 +96,11 @@ export default function Header() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 transition-all duration-300 flex flex-col">
-      <header 
+      <header
         className={classNames(
           "mx-auto w-full max-w-7xl rounded-full transition-all duration-300 border",
-          scrolled 
-            ? "bg-white/80 backdrop-blur-lg shadow-lg border-white/20 py-2 px-6" 
+          scrolled
+            ? "bg-white/80 backdrop-blur-lg shadow-lg border-white/20 py-2 px-6"
             : "bg-white/95 shadow-md border-transparent py-4 px-8"
         )}
       >
@@ -148,54 +153,54 @@ export default function Header() {
                   <PopoverBackdrop className="fixed inset-0 z-0 bg-transparent" onClick={() => close()} />
 
                   <PopoverPanel
-                      transition
-                      className="absolute left-1/2 -translate-x-1/2 top-full z-10 mt-5 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-black/5 transition data-[closed]:translate-y-2 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
-                    >
-                      <div className="p-4 grid grid-cols-2 gap-2">
-                        {citys.map((item) => (
-                          <div
-                            key={item.name}
-                            className="group relative flex flex-col gap-x-6 rounded-2xl p-4 text-sm leading-6 hover:bg-brand-green/5 transition-colors"
-                          >
-                            <a
-                              href={item.href}
-                              onClick={() => close()}
-                              className="block font-semibold text-brand-blue"
-                            >
-                              {item.name}
-                              <span className="absolute inset-0" />
-                            </a>
-                            <p className="mt-1 text-xs text-gray-500 line-clamp-2">
-                              {item.description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="bg-gray-50 border-t border-gray-100 p-4">
-                        <a
-                          href="/contacto"
-                          onClick={() => close()}
-                          className="flex items-center justify-center gap-x-2.5 rounded-xl p-3 text-sm font-semibold leading-6 text-brand-blue bg-white hover:bg-gray-100 ring-1 ring-inset ring-gray-200 transition-colors"
+                    transition
+                    className="absolute left-1/2 -translate-x-1/2 top-full z-10 mt-5 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-black/5 transition data-[closed]:translate-y-2 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+                  >
+                    <div className="p-4 grid grid-cols-2 gap-2">
+                      {citys.map((item) => (
+                        <div
+                          key={item.name}
+                          className="group relative flex flex-col gap-x-6 rounded-2xl p-4 text-sm leading-6 hover:bg-brand-green/5 transition-colors"
                         >
-                          📍 Ver todas nuestras sedes principales
-                        </a>
-                      </div>
-                      <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 border-t border-gray-100">
-                        {callsToAction.map((item) => (
                           <a
-                            key={item.name}
                             href={item.href}
-                            className="flex items-center justify-center gap-x-2.5 p-4 text-sm font-semibold leading-6 text-brand-blue hover:bg-gray-100 transition-colors"
+                            onClick={() => close()}
+                            className="block font-semibold text-brand-blue"
                           >
-                            <item.icon
-                              className="h-5 w-5 flex-none text-brand-green"
-                              aria-hidden="true"
-                            />
                             {item.name}
+                            <span className="absolute inset-0" />
                           </a>
-                        ))}
-                      </div>
-                    </PopoverPanel>
+                          <p className="mt-1 text-xs text-gray-500 line-clamp-2">
+                            {item.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="bg-gray-50 border-t border-gray-100 p-4">
+                      <a
+                        href="/contacto"
+                        onClick={() => close()}
+                        className="flex items-center justify-center gap-x-2.5 rounded-xl p-3 text-sm font-semibold leading-6 text-brand-blue bg-white hover:bg-gray-100 ring-1 ring-inset ring-gray-200 transition-colors"
+                      >
+                        📍 Ver todas nuestras sedes principales
+                      </a>
+                    </div>
+                    <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 border-t border-gray-100">
+                      {callsToAction.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center justify-center gap-x-2.5 p-4 text-sm font-semibold leading-6 text-brand-blue hover:bg-gray-100 transition-colors"
+                        >
+                          <item.icon
+                            className="h-5 w-5 flex-none text-brand-green"
+                            aria-hidden="true"
+                          />
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  </PopoverPanel>
                 </>
               )}
             </Popover>
@@ -235,11 +240,11 @@ export default function Header() {
 
       <AnimatePresence>
         {!scrolled && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20, height: 0, margin: 0, overflow: 'hidden' }}
-            className="mt-2"
+            className="mt-2 hidden sm:block"
           >
             <InfoBanner />
           </motion.div>

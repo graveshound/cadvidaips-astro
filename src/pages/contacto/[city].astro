@@ -10,6 +10,7 @@ export function getStaticPaths() {
     { params: { city: "monteria" } },
     { params: { city: "sincelejo" } },
     { params: { city: "turbaco" } },
+    { params: { city: "sanmartin" } },
   ];
 }
 
@@ -21,6 +22,7 @@ const cityNames: Record<string, string> = {
   monteria: "Montería",
   sincelejo: "Sincelejo",
   turbaco: "Turbaco",
+  sanmartin: "San Martín de Loba",
 };
 const cityName = cityNames[city] || city;
 ---

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircleIcon, HeartIcon, UsersIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
@@ -58,8 +58,30 @@ const testimonials = [
   },
 ]
 
+const galleryImages = Array.from({ length: 14 }, (_, i) => ({
+  src: `/assets/images/somos_cadvida/somos_cadvida_${i + 1}.webp`,
+  alt: `Familia CADVIDA - Imagen ${i + 1}`,
+}))
+
 export default function HomeClient() {
   const [tsIdx, setTsIdx] = useState(0)
+  const [activePhotoIdx, setActivePhotoIdx] = useState(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const sliderRef = useRef(null)
+  const scrollPosRef = useRef(0)
+
+  const scrollSlider = (direction) => {
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth } = sliderRef.current
+      const scrollAmount = clientWidth * 0.75
+      sliderRef.current.scrollTo({
+        left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: 'smooth',
+      })
+      // Update our track ref so manual clicks are synced with autoplay position
+      scrollPosRef.current = direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount
+    }
+  }
   const total = testimonials.length
   const prev = () => setTsIdx(i => (i - 1 + total) % total)
   const next = () => setTsIdx(i => (i + 1) % total)
@@ -68,6 +90,42 @@ export default function HomeClient() {
     const t = setInterval(next, 5500)
     return () => clearInterval(t)
   }, [tsIdx])
+
+  useEffect(() => {
+    if (activePhotoIdx !== null || isHovered) return
+
+    let animationFrameId
+    let lastTime = performance.now()
+    const speed = 35 // Pixeles por segundo (suave y lento)
+
+    // Sync ref value with actual position when starting
+    if (sliderRef.current) {
+      scrollPosRef.current = sliderRef.current.scrollLeft
+    }
+
+    const scrollStep = (time) => {
+      if (sliderRef.current) {
+        const delta = (time - lastTime) / 1000
+        lastTime = time
+
+        const { scrollWidth, clientWidth } = sliderRef.current
+
+        // Wrap back to beginning if at the end
+        if (scrollPosRef.current + clientWidth >= scrollWidth - 5) {
+          scrollPosRef.current = 0
+          sliderRef.current.scrollLeft = 0
+        } else {
+          scrollPosRef.current += speed * delta
+          sliderRef.current.scrollLeft = Math.round(scrollPosRef.current)
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep)
+    }
+
+    animationFrameId = requestAnimationFrame(scrollStep)
+
+    return () => cancelAnimationFrame(animationFrameId)
+  }, [activePhotoIdx, isHovered])
 
   const desktopSlides = [0, 1, 2].map(offset => testimonials[(tsIdx + offset) % total])
 
@@ -473,31 +531,157 @@ export default function HomeClient() {
         </div>
       </motion.div>
 
-      {/* Image Gallery */}
+      {/* Somos CADVIDA Section */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-32 mb-24 relative z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6"
+        >
+          <div>
+            <p className="text-brand-green text-sm font-semibold tracking-widest uppercase mb-2">#somosCadvida</p>
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              Más que una IPS, somos una familia
+            </h2>
+          </div>
+          
+          {/* Navigation Arrows */}
+          <div className="flex gap-3">
+            <button
+              onClick={() => scrollSlider('left')}
+              aria-label="Anterior"
+              className="h-11 w-11 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-blue hover:text-brand-blue transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => scrollSlider('right')}
+              aria-label="Siguiente"
+              className="h-11 w-11 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:border-brand-blue hover:text-brand-blue transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </motion.div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-32 mb-20">
+        {/* Carousel Slider */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative"
         >
-          {['vida-1.jpg', 'vida-2.jpg', 'vida-3.jpg', 'vida-4.jpg'].map((img, i) => (
-            <motion.div
-              key={img}
-              whileHover={{ scale: 1.05 }}
-              className="relative overflow-hidden rounded-2xl shadow-lg aspect-[3/4]"
-            >
-              <img
-                src={`/assets/images/${img}`}
-                alt="Instalaciones VIDA IPS"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.div>
-          ))}
+          <div
+            ref={sliderRef}
+            className="flex gap-4 overflow-x-auto pb-6"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            {galleryImages.map((img, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-72 sm:w-80 md:w-96 cursor-pointer group relative overflow-hidden rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 aspect-[4/3] bg-gray-100"
+                onClick={() => setActivePhotoIdx(i)}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white bg-white/20 backdrop-blur-md rounded-full px-5 py-2.5 font-semibold text-sm border border-white/20 shadow-lg transform scale-95 group-hover:scale-100 transition-all duration-300">
+                    🔎 Ampliar foto
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
+
+        {/* Photo Detail Modal */}
+        <AnimatePresence>
+          {activePhotoIdx !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10 select-none"
+              onClick={() => setActivePhotoIdx(null)}
+            >
+              {/* Close Button */}
+              <button
+                className="absolute top-6 right-6 text-white/75 hover:text-white bg-white/10 hover:bg-white/25 rounded-full p-3 transition-all hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
+                onClick={() => setActivePhotoIdx(null)}
+                aria-label="Cerrar"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Prev Button */}
+              <button
+                className="absolute left-4 md:left-10 h-12 w-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg cursor-pointer z-10"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setActivePhotoIdx((activePhotoIdx - 1 + galleryImages.length) % galleryImages.length)
+                }}
+                aria-label="Anterior"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Image display */}
+              <motion.div
+                key={activePhotoIdx}
+                initial={{ scale: 0.95, y: 15 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 15 }}
+                transition={{ duration: 0.3 }}
+                className="relative max-w-full max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl bg-black flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={galleryImages[activePhotoIdx].src}
+                  alt={galleryImages[activePhotoIdx].alt}
+                  className="max-w-full max-h-[80vh] object-contain rounded-2xl"
+                />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white/90 text-sm px-5 py-2 rounded-full border border-white/10 shadow-md">
+                  {activePhotoIdx + 1} / {galleryImages.length}
+                </div>
+              </motion.div>
+
+              {/* Next Button */}
+              <button
+                className="absolute right-4 md:right-10 h-12 w-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg cursor-pointer z-10"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setActivePhotoIdx((activePhotoIdx + 1) % galleryImages.length)
+                }}
+                aria-label="Siguiente"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )
